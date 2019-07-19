@@ -59,8 +59,10 @@ void loop() {
     radio.read(&msg, sizeof(msg));
 
 	// If all flex sensors are in between a certain range, the enable changes.
-    if ((msg[0] > 1) && (msg[0] < 9)  &&
-        (msg[2] > 1) && (msg[2] < 9) && (msg[3] > 1) && (msg[3] < 9)) {
+    if ((msg[0] > 1) && (msg[0] < 9) &&
+    	(msg[1] > 1) && (msg[1] < 9) &&
+        (msg[2] > 1) && (msg[2] < 9) && 
+	(msg[3] > 1) && (msg[3] < 9)) {
       digitalWrite (leftForward, LOW);
       digitalWrite (leftReverse, LOW);
       digitalWrite (rightForward, LOW);
@@ -87,7 +89,7 @@ void loop() {
       }
 		
 		// Makes servo rotate
-      else if (msg[2] > 1 && msg[2] < 9) {
+      else if (msg[1] > 1 && msg[1] < 9) {
         Serial.println("Servo 2");
         
         // Rotate the servo to 180 and back to 0 degrees
@@ -121,7 +123,7 @@ void loop() {
       }
     
 		// Makes car move backward
-      else if (msg[2] > 1 && msg[2] < 9) {
+      else if (msg[1] > 1 && msg[1] < 9) {
         Serial.println("flex_2");
         digitalWrite (leftForward, HIGH);
         digitalWrite (leftReverse, LOW);
@@ -131,7 +133,7 @@ void loop() {
       
       }
   	// Makes car turn right
-      else if (msg[3] > 1 && msg[3] < 9) {
+      else if (msg[2] > 1 && msg[2] < 9) {
         Serial.println("flex_3");
         digitalWrite (leftForward, HIGH);
         digitalWrite (leftReverse, LOW);
@@ -142,7 +144,7 @@ void loop() {
       }
   
 		// Makes car turn left
-      else if (msg[1] > 1 && msg[1] < 9) {
+      else if (msg[3] > 1 && msg[3] < 9) {
         Serial.println("flex_4");
         digitalWrite (leftForward, LOW);
         digitalWrite (leftReverse, LOW);
