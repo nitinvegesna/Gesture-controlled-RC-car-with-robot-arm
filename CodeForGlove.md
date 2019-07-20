@@ -1,5 +1,7 @@
 // Gesture-controlled-RC-car-with-robot-arm
+
 #include <SPI.h>                      //the communication interface with the modem
+
 #include "RF24.h"                     //the library which helps us to control the radio modem
 
 int msg[4]; //Total number of data to be sent (data package)
