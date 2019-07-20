@@ -60,9 +60,9 @@ void loop() {
 
 	// If all flex sensors are in between a certain range, the enable changes.
     if ((msg[0] > 1) && (msg[0] < 9) &&
-    (msg[1] > 1) && (msg[1] < 9) &&
+    	(msg[1] > 1) && (msg[1] < 9) &&
         (msg[2] > 1) && (msg[2] < 9) && 
-		(msg[3] > 1) && (msg[3] < 9)) {
+	(msg[3] > 1) && (msg[3] < 9)) {
       digitalWrite (leftForward, LOW);
       digitalWrite (leftReverse, LOW);
       digitalWrite (rightForward, LOW);
