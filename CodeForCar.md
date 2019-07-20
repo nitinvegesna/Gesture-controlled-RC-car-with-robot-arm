@@ -44,9 +44,11 @@ void setup() {
 radio.begin();
 
   // set the address
+  
   radio.openReadingPipe(1, pipe);
 
   // set module as receiver
+  
   radio.startListening();
 }
 
@@ -54,15 +56,19 @@ void loop() {
   // put your main code here, to run repeatedly:
 
   // read the data if available in buffer
+  
   if (radio.available())  {
-    // char motor[32] = {0};
+    
+    
     radio.read(&msg, sizeof(msg));
 
-	// If all flex sensors are in between a certain range, the enable changes.
+ // If all flex sensors are in between a certain range, the enable changes.
+    
     if ((msg[0] > 1) && (msg[0] < 9) &&
     	(msg[1] > 1) && (msg[1] < 9) &&
         (msg[2] > 1) && (msg[2] < 9) && 
 	(msg[3] > 1) && (msg[3] < 9)) {
+     
       digitalWrite (leftForward, LOW);
       digitalWrite (leftReverse, LOW);
       digitalWrite (rightForward, LOW);
@@ -70,7 +76,8 @@ void loop() {
       Serial.print("Current enable is: ");
       Serial.println(enable);
       enable = !enable;    			// Changing enable
-      Serial.print("New enable is: ");;
+      
+      Serial.print("New enable is: ");
       Serial.println(enable);
       delay(5000);
     }
