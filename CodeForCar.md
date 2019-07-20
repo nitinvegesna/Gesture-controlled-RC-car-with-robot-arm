@@ -8,6 +8,7 @@
 #include <Servo.h>
 
 // defining variables
+
 const int leftSideSpeed = 2; 
 const int leftForward = 5;
 const int leftReverse = 7;
@@ -17,10 +18,12 @@ const int rightReverse = 3;
 bool enable = false; 
 int pos=0;
 // Create servo objects
+
 Servo servo1;
 Servo servo2;
 
 // create an RF24 object
+
 RF24 radio(9,8); // (CE, CSN)
 
 // address through which the modules communicate
@@ -28,6 +31,7 @@ RF24 radio(9,8); // (CE, CSN)
 const uint64_t pipe = 0xE8E8F0F0E1LL; //the address of the modem that will receive data from the Arduino.
 
 // creating data package consisting of 4 characters.
+
 int msg[4];
 
 void setup() {
@@ -35,9 +39,11 @@ void setup() {
 
   // put your setup code here, to run once:
 // Specifying pins servos are connected to
-  servo1.attach(10);
+ 
+ servo1.attach(10);
   servo2.attach(A5);
 // Enabling Serial monitor
+  
   while (!Serial);
     Serial.begin(9600);
   
