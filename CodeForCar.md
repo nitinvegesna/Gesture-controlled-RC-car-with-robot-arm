@@ -2,8 +2,9 @@
 // Include necessary libraries
 
 #include <SPI.h>
-#include <nRF24L01.h>
+
 #include <RF24.h>
+
 #include <Servo.h>
 
 // defining variables
